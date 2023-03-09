@@ -18,6 +18,13 @@ DESC
 
   s.source       = { :git => "https://github.com/alexaubry/HTMLString.git", :tag => "#{s.version}" }
   s.source_files  = "Sources/HTMLString/*.swift"
+  s.prefix_header_contents = '
+  #if __has_include(<HTMLString/HTMLString-Swift.h>)
+      #import <HTMLString/HTMLString-Swift.h>
+  #else
+      #import "HTMLString-Swift.h"
+  #endif
+  '
   s.documentation_url = "https://alexaubry.github.io/HTMLString/"
 
   s.swift_version = "5.0"
